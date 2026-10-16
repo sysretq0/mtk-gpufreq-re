@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `docs/limiters.md`: the limiter driver map (which component sets each limiter,
+  and when), the MT6789 battery-throttling device-tree levels, the
+  `__gpuppm_sort_limit` combination rule, and the `/proc/pbm` power-budget
+  override.
+
+### Fixed
+
+- `docs/limiters.md`: correct the ceiling direction — a *larger* ceiling excludes
+  the fastest OPPs (`[ceiling, floor]` is the allowed index range).
+
 ## [0.1.0] - 2026-10-16
 
 Initial release: the GPU DVFS reverse-engineering result plus a packaged toolkit.

@@ -12,8 +12,8 @@ inspects and patches it.
    layout.
 3. **[patching.md](patching.md)** — the single-instruction unlock, its guards and
    its rollback.
-4. **[limiters.md](limiters.md)** — the `/proc/gpufreqv2/limit_table` interface that
-   controls the overclock ceiling.
+4. **[limiters.md](limiters.md)** — the `/proc/gpufreqv2/limit_table` interface, the
+   full limiter map, and the components that drive each limiter.
 5. **[reverse-engineering.md](reverse-engineering.md)** — methodology, evidence and
    open questions.
 
