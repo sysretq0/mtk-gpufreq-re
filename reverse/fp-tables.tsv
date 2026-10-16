@@ -1,0 +1,51 @@
+# Registered function-pointer tables (.data, section-relative offsets).
+# Resolved from the R_AARCH64_ABS64 relocations of each table.
+#
+# The wrapper stores the address of each table on registration:
+#   mtk_gpufreq_wrapper.ko .bss gpufreq_fp (0x0)  <- &platform_ap_fp.46
+#   mtk_gpufreq_wrapper.ko .bss gpuppm_fp  (0x30) <- &platform_ap_fp
+#
+# table	offset	entry	platform_symbol
+platform_ap_fp.46	0xca0	0x000	__gpufreq_bringup
+platform_ap_fp.46	0xca0	0x008	__gpufreq_power_ctrl_enable
+platform_ap_fp.46	0xca0	0x010	__gpufreq_get_power_state
+platform_ap_fp.46	0xca0	0x018	__gpufreq_get_dvfs_state
+platform_ap_fp.46	0xca0	0x020	__gpufreq_get_shader_present
+platform_ap_fp.46	0xca0	0x028	__gpufreq_power_control
+platform_ap_fp.46	0xca0	0x030	__gpufreq_set_timestamp
+platform_ap_fp.46	0xca0	0x038	__gpufreq_check_bus_idle
+platform_ap_fp.46	0xca0	0x040	__gpufreq_dump_infra_status
+platform_ap_fp.46	0xca0	0x048	__gpufreq_set_stress_test
+platform_ap_fp.46	0xca0	0x050	__gpufreq_set_aging_mode
+platform_ap_fp.46	0xca0	0x060	__gpufreq_get_asensor_info
+platform_ap_fp.46	0xca0	0x068	__gpufreq_get_core_mask_table
+platform_ap_fp.46	0xca0	0x070	__gpufreq_get_core_num
+platform_ap_fp.46	0xca0	0x090	__gpufreq_get_cur_fgpu
+platform_ap_fp.46	0xca0	0x098	__gpufreq_get_cur_vgpu
+platform_ap_fp.46	0xca0	0x0a0	__gpufreq_get_cur_pgpu
+platform_ap_fp.46	0xca0	0x0a8	__gpufreq_get_max_pgpu
+platform_ap_fp.46	0xca0	0x0b0	__gpufreq_get_min_pgpu
+platform_ap_fp.46	0xca0	0x0b8	__gpufreq_get_cur_idx_gpu
+platform_ap_fp.46	0xca0	0x0c0	__gpufreq_get_opp_num_gpu
+platform_ap_fp.46	0xca0	0x0c8	__gpufreq_get_signed_opp_num_gpu
+platform_ap_fp.46	0xca0	0x0d0	__gpufreq_get_fgpu_by_idx
+platform_ap_fp.46	0xca0	0x0d8	__gpufreq_get_pgpu_by_idx
+platform_ap_fp.46	0xca0	0x0e0	__gpufreq_get_idx_by_fgpu
+platform_ap_fp.46	0xca0	0x0e8	__gpufreq_get_lkg_pgpu
+platform_ap_fp.46	0xca0	0x0f0	__gpufreq_get_dyn_pgpu
+platform_ap_fp.46	0xca0	0x0f8	__gpufreq_get_working_table_gpu
+platform_ap_fp.46	0xca0	0x100	__gpufreq_get_signed_table_gpu
+platform_ap_fp.46	0xca0	0x108	__gpufreq_get_debug_opp_info_gpu
+platform_ap_fp.46	0xca0	0x110	__gpufreq_generic_commit_gpu
+platform_ap_fp.46	0xca0	0x118	__gpufreq_fix_target_oppidx_gpu
+platform_ap_fp.46	0xca0	0x120	__gpufreq_fix_custom_freq_volt_gpu
+platform_ap_fp.46	0xca0	0x128	__gpufreq_get_cur_vsram_gpu
+platform_ap_fp	0x3f8	0x000	gpuppm_limited_commit
+platform_ap_fp	0x3f8	0x008	gpuppm_set_limit
+platform_ap_fp	0x3f8	0x010	gpuppm_switch_limit
+platform_ap_fp	0x3f8	0x018	gpuppm_get_ceiling
+platform_ap_fp	0x3f8	0x020	gpuppm_get_floor
+platform_ap_fp	0x3f8	0x028	gpuppm_get_c_limiter
+platform_ap_fp	0x3f8	0x030	gpuppm_get_f_limiter
+platform_ap_fp	0x3f8	0x038	gpuppm_get_limit_table
+platform_ap_fp	0x3f8	0x040	gpuppm_get_debug_limit_info

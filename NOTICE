@@ -1,0 +1,44 @@
+mtk-gpufreq-re
+Copyright (C) 2026 The mtk-gpufreq-re Authors
+SPDX-License-Identifier: GPL-3.0-or-later
+
+This product is licensed under the GNU General Public License, version 3 or
+later.  The full license text is in the file LICENSE.
+
+--------------------------------------------------------------------------------
+Third-party and vendor material
+--------------------------------------------------------------------------------
+
+1. Vendor kernel modules.
+
+   No MediaTek kernel modules are distributed with this project.  The GPU DVFS
+   modules analysed during development (`mtk_gpufreq_mt6789.ko`,
+   `mtk_gpufreq_wrapper.ko`, `mtk_gpu_power_throttling.ko`) are proprietary works
+   of MediaTek Inc. and/or the device vendor.  They remain the property of their
+   respective owners and are NOT covered by this project's license.  Users must
+   obtain them, and any rights to use them, from the device or its vendor.
+
+   The `.gitignore` excludes `*.ko` files so that local copies are never
+   committed.  Any patched module produced by this tooling is derived from the
+   vendor binary and is likewise not distributed here.
+
+2. Synthetic test fixtures.
+
+   The test suite builds its own minimal ELF64 objects.  It does not require any
+   vendor binary and contains no extracted vendor data.
+
+3. Python standard library only.
+
+   The installable package (`src/mtk_gpufreq_re/`) has no third-party runtime
+   dependencies.  Optional development extras (`ruff`, `build`) are separate
+   works under their own licenses and are not redistributed here.
+
+--------------------------------------------------------------------------------
+Corresponding Source
+--------------------------------------------------------------------------------
+
+Under the GPL, the Corresponding Source for this work is the contents of this
+repository.  If you convey a modified version, you must keep the same license,
+mark the changes, and make the source available to recipients.
+
+There is NO WARRANTY for this program, to the extent permitted by law.

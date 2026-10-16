@@ -1,0 +1,21 @@
+unlock site: mtk_gpufreq_mt6789.ko, .text (section-relative offsets)
+reference build: 5.10.237-android12-9-g5ae907723135
+reference sha256: 8837c4f33c656eb4c778aec552450ec999b6db8f437717b94872842618207b89
+
+window around the substitution (objdump); file offset = 0x1000 + section offset
+
+  .text+0x7c64   0x1A9F07E9   cset   w9, ne            ; flag materialised in w9
+  .text+0x7c68   0x2A090108   orr    w8, w8, w9        ; <- site (stock)
+  .text+0x7c6c   0x528004AB   mov    w11, #0x25        ; 37
+  .text+0x7c70   0x7100011F   cmp    w8, #0x0
+  .text+0x7c74   0x1A8A1164   csel   w4, w11, w10, ne  ; start = flag ? 37 : 44
+
+after patching:
+
+  .text+0x7c68   0x2A1F03E8   mov    w8, wzr           ; flag = 0
+
+The two following instructions then compute start = 0 and, separately, the
+working count = 45 instead of 38, so the working table becomes signed[0..44].
+The change touches 3 bytes of the file:
+
+  0x2A090108 ^ 0x2A1F03E8 = 0x001602E0   -> three non-zero bytes

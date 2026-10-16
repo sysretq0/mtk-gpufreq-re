@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtk-gpufreq-re"
+description = "Reverse-engineering and patch toolkit for the MediaTek GPU DVFS kernel modules"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "sysretq0" }]
+keywords = ["android", "mediatek", "mtk", "gpu", "gpufreq", "opp", "dvfs", "overclock", "reverse-engineering"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Software Development :: Disassemblers",
+  "Topic :: System :: Hardware",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/sysretq0/mtk-gpufreq-re"
+Source = "https://github.com/sysretq0/mtk-gpufreq-re"
+Issues = "https://github.com/sysretq0/mtk-gpufreq-re/issues"
+Releases = "https://github.com/sysretq0/mtk-gpufreq-re/releases"
+
+[project.scripts]
+mtk-gpufreq-re = "mtk_gpufreq_re.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6",
+  "build>=1.2",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.dynamic]
+version = { attr = "mtk_gpufreq_re.__about__.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+# %-formatting is used deliberately throughout for py3.9 compatibility and
+# compact CLI/error strings; the project does not require f-strings.
+ignore = ["E501", "UP031"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mtk_gpufreq_re"]
